@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+      <h2 class="text-center" style="margin-top: 30px;">Edit Account</h2>
+        <div class="card-body">
+
+          <form #updateForm="ngForm" (ngSubmit)="update()" *ngIf="account">
+            <div class="form-group">
+                <label>Customer</label><br>
+                <input type="text"  class="form-control" [(ngModel)]="account.customerId "name="customerId" readonly="true" minlength="3" maxlength="20">
+                <br/>
+                <label>Balance</label><br>
+                <input type="text" class="form-control" [(ngModel)]="account.balance" name="balance" required minlength="3" maxlength="20">
+                <br/>
+                <br/>
+                <button class="w-100 btn btn-primary btn-lg" type="submit" value="Update" [disabled]="!updateForm.valid">Update</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+ <a routerLink="/allAccounts">Back to List</a>
+

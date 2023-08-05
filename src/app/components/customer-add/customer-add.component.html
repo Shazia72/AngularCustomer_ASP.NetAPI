@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+      <h2 class="text-center" style="margin-top: 30px;">Create New Customer</h2>
+        <div class="card-body">
+
+          <form #creationForm="ngForm" (ngSubmit)="addCustomer(creationForm.value); creationForm.reset()">
+            <div class="form-group">
+                <label>Name</label><br>
+                <input type="text"  class="form-control" ngModel #name="ngModel" name="name" required minlength="3" maxlength="30"
+                  [ngClass]="{ invalid: name.invalid && name.touched }"/>
+
+                <div *ngIf="name.invalid && name.touched" class="text-danger"> Name is a required field. </div><br/>
+
+                 <label>Unit Number</label><br>
+                <input type="text" class="form-control" ngModel #address.unitNumber="ngModel" name="address.unitNumber" required minlength="3" maxlength="200"
+                  [ngClass]="{ invalid: address.unitNumber && address.unitNumber }"/>
+
+                <div *ngIf="address.unitNumber && address.unitNumber" class="text-danger"> Unit number is is a required field. </div><br/>
+
+                <label>Street Number</label><br>
+                <input type="text" class="form-control" ngModel #address.streetNumber="ngModel" name="address.streetNumber" required minlength="3" maxlength="200"
+                  [ngClass]="{ invalid: address.streetNumber && address.streetNumber }"/>
+
+                <div *ngIf="address.streetNumber && address.streetNumber" class="text-danger"> Street Number is a required field. </div><br/>
+
+                <label>Postal Code</label><br>
+                <input type="text" class="form-control" ngModel #address.postalCode="ngModel" name="address.postalCode" required minlength="5" maxlength="10"
+                  [ngClass]="{ invalid: address.postalCode && address.postalCode }"/>
+
+                <div *ngIf="address.postalCode && address.postalCode" class="text-danger"> Postal Code is a required field. </div><br/>
+
+
+                <br/>
+                <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="!creationForm.valid">Add</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+ <a routerLink="/allCustomers">Back to List</a>

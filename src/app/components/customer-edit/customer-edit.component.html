@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+      <h2 class="text-center" style="margin-top: 30px;">Edit Customer</h2>
+        <div class="card-body">
+
+          <form #updateForm="ngForm" (ngSubmit)="update()" *ngIf="employee">
+            <div class="form-group">
+                <label>Name</label><br>
+                <input type="text"  class="form-control" [(ngModel)]="employee.name" name="name" required minlength="3" maxlength="30">
+                <br/>
+
+                <label>Unit Number</label><br>
+                <input type="text" class="form-control" [(ngModel)]="employee.address.unitNumber" name="address.unitNumber" required minlength="3" maxlength="200">
+                <br/>
+                <label>Street Number</label><br>
+                <input type="text" class="form-control" [(ngModel)]="employee.address.streetNumber" name="address.streetNumber" required minlength="3" maxlength="200">
+                <br/>
+                <label>Postal Code</label><br>
+                <input type="text" class="form-control" [(ngModel)]="employee.address.postalCode" name="address.postalCode" required minlength="4" maxlength="200">
+
+                <br/>
+                <br/>
+                <button class="w-100 btn btn-primary btn-lg" type="submit" value="Update" [disabled]="!updateForm.valid">Update</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+ <a routerLink="/allCustomers">Back to List</a>

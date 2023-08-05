@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Search</h2>
+  <div class="row">
+    <div class="col" id="search">
+      <input type="search" id="search-bar" class="nosubmit" placeholder="Search" [(ngModel)]="findPostalcode" />
+    </div>
+          <h3 *ngIf="employees.length == 0"> There are no Customers in database</h3>
+          <div class="row" >
+            <h2 style="text-align: center">Listing All Customers</h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-3">
+              <a routerLink="/add" class="btn btn-primary btn-sm mb-3">New Customer </a>
+            </div>
+          </div>
+
+          <table class="table table-bordered table-striped">
+            <thead class="table-light">
+              <tr>
+                <th>Id</th>
+                  <th>Name</th>
+                  <th>Unit Number</th>
+                  <th>Street number</th>
+                  <th> Postal Code</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+          <tr *ngFor="let i of employees | postalCode: findPostalcode">
+          <td>{{ i.customerId}}</td>
+          <td>{{ i.name}}</td>
+          <td>{{ i.address.unitNumber}}</td>
+          <td>{{ i.address.streetNumber}}</td>
+          <td>{{ i.address.postalCode}}</td>
+          <div>
+          <td>
+              <button class="btn btn-warning col-lg-4"  routerLink ="/edit/{{i.customerId}}">Edit</button>
+              <button class="btn btn-primary col-lg-4" routerLink="/details/{{i.customerId}}">Details</button>
+              <button class="btn btn-danger col-lg-4" (click)="deleteCustomer(i.customerId)">Delete</button>
+          </td></div>
+          </tr>
+          </table>
+        </div>
+</div>

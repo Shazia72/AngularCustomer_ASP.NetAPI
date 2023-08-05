@@ -1,0 +1,22 @@
+<div *ngIf="employee">
+<div class="container">
+  <div class="row">
+    <h2 class="text-center" style="margin-top: 30px;">Customer Details</h2>
+    <div class="card-body">
+      <label class="form-control"><h5>Name : {{employee.name}}</h5></label><br>
+      <label class="form-control"><h5>Address: {{employee.address.unitNumber}} </h5></label><br>
+      <label class="form-control"><h5>Address: {{employee.address.streetNumber}} </h5></label><br>
+      <label class="form-control"><h5>Address: {{employee.address.postalCode}} </h5></label><br>
+      </div>
+      <div *ngIf="!employee">
+      <h2>No matching customer found.</h2>
+    </div>
+    </div>
+  </div>
+  </div>
+
+
+<div><a routerLink="/allCustomers">Back to Customer List</a></div>
+<div><a routerLink="/allAccounts">Back to Account List</a></div>
+
+

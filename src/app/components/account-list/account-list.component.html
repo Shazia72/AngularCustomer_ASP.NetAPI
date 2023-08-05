@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Search</h2>
+  <div class="row">
+          <div class="col" id="search">
+            <input type="search" id="search-bar" class="nosubmit" placeholder="Search by Balance greater than the entered amount" [(ngModel)]="findBalance" />
+          </div>
+
+          <h3 *ngIf="allAccounts.length == 0"> There are no Accounts in database</h3>
+          <div class="row" >
+            <h2 style="text-align: center">Listing All Accounts</h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-3">
+              <a routerLink="/addAccount" class="btn btn-primary btn-sm mb-3">New Account </a>
+            </div>
+          </div>
+
+          <table class="table table-bordered table-striped">
+            <thead class="table-light">
+              <tr>
+                <th>Id</th>
+                  <th>Balance </th>
+                  <th>Customer Id</th>
+                <th>Actions</th>
+                <th></th>
+              </tr>
+            </thead>
+
+          <tr *ngFor="let i of allAccounts | findBalance:findBalance">
+          <td>{{ i.accountId}}</td>
+          <td>{{ i.balance}}</td>
+          <td>{{ i.customerId}}</td>
+          <div>
+            <td>
+                <button class="btn btn-warning col-lg-3"  routerLink ="/editAccount/{{i.accountId}}">Edit</button>
+                <button class="btn btn-primary col-lg-3" routerLink="/accountDetails/{{i.accountId}}">Details</button>
+                <button class="btn btn-danger col-lg-3" (click)="deleteAccount(i.accountId)">Delete</button>
+                <button class="btn btn-warning col-lg-3" routerLink ="/details/{{i.customerId}}">Customer</button>
+            </td>
+          </div>
+          </tr>
+          </table>
+        </div>
+</div>
+

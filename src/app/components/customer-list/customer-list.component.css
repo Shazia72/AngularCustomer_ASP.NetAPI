@@ -1,0 +1,25 @@
+#search-bar,
+#search-bar:hover,
+#search-bar:focus {
+    background-color: white;
+}
+
+div#search {
+    padding: 10px 2px 4px 0px;
+}
+
+div#daterange {
+    padding: 10px 2px 4px 0px;
+}
+
+div#add {
+    padding: 10px 0px 4px 2px;
+}
+
+input.nosubmit {
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px 4px 12px 40px;
+    background: transparent url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(57, 179, 219)' class='bi bi-search' viewBox='0 0 16 16'> <path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/> </svg>") no-repeat 13px center;
+}
+
